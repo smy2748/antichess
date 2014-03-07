@@ -1,6 +1,7 @@
 package Pieces;
 
 import Core.Move;
+import Core.MoveSet;
 
 import java.util.ArrayList;
 
@@ -28,5 +29,68 @@ public class Rook extends Piece {
             }
         }
         return moves;
+    }
+
+    @Override
+    public MoveSet generateMoves(Piece[][] board) {
+        Piece p;
+        int nx, ny;
+        MoveSet m = new MoveSet();
+
+        //Right
+        for(nx = x+1, ny = y; withinBoard(x,y); x++){
+            p = board[ny][nx];
+            if(p != null){
+                if(p.getPlayer() != player){
+                    m.addCapture(new Move(this,nx,ny));
+                }
+                break;
+            }
+            else{
+                m.addMove(new Move(this,nx,ny));
+            }
+        }
+
+        //Up
+        for(nx = x, ny = y+1; withinBoard(x,y); y++){
+            p = board[ny][nx];
+            if(p != null){
+                if(p.getPlayer() != player){
+                    m.addCapture(new Move(this,nx,ny));
+                }
+                break;
+            }
+            else{
+                m.addMove(new Move(this,nx,ny));
+            }
+        }
+
+        //Left
+        for(nx = x-1, ny = y; withinBoard(x,y); x--){
+            p = board[ny][nx];
+            if(p != null){
+                if(p.getPlayer() != player){
+                    m.addCapture(new Move(this,nx,ny));
+                }
+                break;
+            }
+            else{
+                m.addMove(new Move(this,nx,ny));
+            }
+        }
+
+        for(nx = x, ny = y-1; withinBoard(x,y); y--){
+            p = board[ny][nx];
+            if(p != null){
+                if(p.getPlayer() != player){
+                    m.addCapture(new Move(this,nx,ny));
+                }
+                break;
+            }
+            else{
+                m.addMove(new Move(this,nx,ny));
+            }
+        }
+        return m;
     }
 }
