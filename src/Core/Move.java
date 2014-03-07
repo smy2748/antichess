@@ -1,3 +1,7 @@
+package Core;
+
+import Pieces.Piece;
+
 /**
  * Created by Stephen Yingling on 3/5/14.
  */
@@ -46,5 +50,10 @@ public class Move {
 
     public void setY1(int y1) {
         this.y1 = y1;
+    }
+
+    @Override
+    public String toString(){
+        return "(" + getX0() + ", " + getY0() + ") -> (" + getX1() + ", " + getY1() + ")";
     }
 }
