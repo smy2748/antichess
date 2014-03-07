@@ -1,6 +1,7 @@
 package Pieces;
 
 import Core.Move;
+import Core.MoveSet;
 import Core.Player;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public abstract class Piece {
     protected Player player;
 
     public abstract ArrayList<Move> generateMoves();
+
+    public abstract MoveSet generateMoves(Piece[][] board);
 
     public int getX() {
         return x;

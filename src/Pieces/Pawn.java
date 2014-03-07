@@ -1,6 +1,7 @@
 package Pieces;
 
 import Core.Move;
+import Core.MoveSet;
 import Core.Player;
 
 import java.util.ArrayList;
@@ -38,6 +39,53 @@ public class Pawn extends Piece {
         }
 
         return moves;
+    }
+
+    @Override
+    public MoveSet generateMoves(Piece[][] board) {
+        MoveSet m = new MoveSet();
+        int delta;
+        if(player.isTopPlayer()){
+            delta = -1;
+        }
+        else{
+            delta = 1;
+        }
+
+        int nx, ny;
+        Piece p;
+
+        ny = y +delta;
+        if(withinBoard(x,ny)){
+            p = board[ny][x];
+            if(p == null){
+                m.addMove(new Move(this,x,ny));
+            }
+        }
+
+        nx = x -1;
+        if(withinBoard(nx,ny)){
+            p = board[ny][nx];
+            if(p != null){
+                if(p.getPlayer() != player){
+                    m.addCapture(new Move(this,nx,ny));
+                }
+            }
+        }
+
+        nx = x +1;
+        if(withinBoard(nx,ny)){
+            p = board[ny][nx];
+            if(p != null){
+                if(p.getPlayer() != player){
+                    m.addCapture(new Move(this,nx,ny));
+                }
+            }
+        }
+
+
+
+        return m;
     }
 
     public ArrayList<Move> validMovesAfterCollisions(Piece p){
