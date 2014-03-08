@@ -60,7 +60,7 @@ public class Queen extends Piece{
         MoveSet m = new MoveSet();
 
         //Right
-        for(nx = x+1, ny = y; withinBoard(x,y); x++){
+        for(nx = x+1, ny = y; withinBoard(nx,ny); nx++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -74,7 +74,7 @@ public class Queen extends Piece{
         }
 
         //Up
-        for(nx = x, ny = y+1; withinBoard(x,y); y++){
+        for(nx = x, ny = y+1; withinBoard(nx,ny); ny++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -88,7 +88,7 @@ public class Queen extends Piece{
         }
 
         //Left
-        for(nx = x-1, ny = y; withinBoard(x,y); x--){
+        for(nx = x-1, ny = y; withinBoard(nx,ny); nx--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -101,7 +101,7 @@ public class Queen extends Piece{
             }
         }
 
-        for(nx = x, ny = y-1; withinBoard(x,y); y--){
+        for(nx = x, ny = y-1; withinBoard(nx,ny); ny--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -115,7 +115,7 @@ public class Queen extends Piece{
         }
 
         //North Right Diagonal
-        for( nx = x+1, ny = y+1; withinBoard(x,y); x++, y++){
+        for( nx = x+1, ny = y+1; withinBoard(nx,ny); nx++, ny++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -129,7 +129,7 @@ public class Queen extends Piece{
         }
 
         //North Left Diagonal
-        for( nx = x-1, ny = y+1; withinBoard(x,y); x--, y++){
+        for( nx = x-1, ny = y+1; withinBoard(nx,ny); nx--, ny++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -143,7 +143,7 @@ public class Queen extends Piece{
         }
 
         //South Left Diagonal
-        for( nx = x-1, ny = y-1; withinBoard(x,y); x--, y--){
+        for( nx = x-1, ny = y-1; withinBoard(nx,ny); nx--, ny--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -157,7 +157,7 @@ public class Queen extends Piece{
         }
 
         //South Right Diagonal
-        for( nx = x+1, ny = y-1; withinBoard(x,y); x++, y--){
+        for( nx = x+1, ny = y-1; withinBoard(nx,ny); nx++, ny--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){

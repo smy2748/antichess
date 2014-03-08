@@ -48,7 +48,7 @@ public class Board {
         x1 = move.getX1();
         y1 = move.getY1();
 
-        if(p.promotes()){
+        if(p.promotes() && (p.getY() == 0 || p.getY()==7)){
             p = promotePiece(p,move);
         }
 
@@ -161,10 +161,12 @@ public class Board {
             p1 = new RandomPlayer();
         }
         p1.setTopPlayer(false);
+        p1.setBoard(this);
         if(p2 == null){
             p2 = new RandomPlayer();
         }
         p2.setTopPlayer(true);
+        p2.setBoard(this);
 
         Piece p;
         p = new Rook(x_dim,y_dim);

@@ -38,7 +38,7 @@ public class Rook extends Piece {
         MoveSet m = new MoveSet();
 
         //Right
-        for(nx = x+1, ny = y; withinBoard(x,y); x++){
+        for(nx = x+1, ny = y; withinBoard(nx,ny); nx++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -52,7 +52,7 @@ public class Rook extends Piece {
         }
 
         //Up
-        for(nx = x, ny = y+1; withinBoard(x,y); y++){
+        for(nx = x, ny = y+1; withinBoard(nx,ny); ny++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -66,7 +66,7 @@ public class Rook extends Piece {
         }
 
         //Left
-        for(nx = x-1, ny = y; withinBoard(x,y); x--){
+        for(nx = x-1, ny = y; withinBoard(nx,ny); nx--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -79,7 +79,7 @@ public class Rook extends Piece {
             }
         }
 
-        for(nx = x, ny = y-1; withinBoard(x,y); y--){
+        for(nx = x, ny = y-1; withinBoard(nx,ny); ny--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){

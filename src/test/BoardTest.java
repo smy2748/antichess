@@ -49,7 +49,7 @@ public class BoardTest {
 
     }
 
-
+    @Test
     public void testMakeMove() throws InvalidMoveException {
         Board b = new Board(8,8);
 
