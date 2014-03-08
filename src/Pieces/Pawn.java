@@ -5,7 +5,6 @@ import Core.MoveSet;
 import Core.Player;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Stephen Yingling on 3/7/14.
@@ -68,7 +67,7 @@ public class Pawn extends Piece {
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
-                    m.addCapture(new Move(this,nx,ny));
+                    m.addCapture(new Move(this, nx, ny));
                 }
             }
         }
@@ -88,11 +87,14 @@ public class Pawn extends Piece {
         return m;
     }
 
-    public ArrayList<Move> validMovesAfterCollisions(Piece p){
-        ArrayList<Move> result = new ArrayList<Move>();
+    @Override
+    public String toString(){
+        return " "+player.getPlayerColorChar() + "P ";
+    }
 
-        List<Move> moves = p.generateMoves();
-
-        return result;
+      
+    @Override
+    public boolean promotes(){
+        return true;
     }
 }

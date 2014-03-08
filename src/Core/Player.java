@@ -3,15 +3,25 @@ package Core;
 /**
  * Created by Stephen Yingling on 3/7/14.
  */
-public class Player {
+public abstract class Player {
     protected String name;
     protected boolean topPlayer;
+    protected Board board;
 
     public Player(){}
 
-    public Player(String name, boolean topPlayer) {
+    public Player(String name, boolean topPlayer, Board b) {
         this.name = name;
         this.topPlayer = topPlayer;
+        board = b;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
     }
 
     public String getName() {
@@ -29,4 +39,20 @@ public class Player {
     public void setTopPlayer(boolean topPlayer) {
         this.topPlayer = topPlayer;
     }
+
+    public String getPlayerColorChar(){
+        if(topPlayer){
+            return "W";
+        }
+            return "B";
+    }
+
+    public String getPlayerColor(){
+        if(topPlayer){
+            return "White";
+        }
+        return "Black";
+    }
+
+    public abstract Move getMove();
 }

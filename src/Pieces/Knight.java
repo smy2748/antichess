@@ -86,4 +86,9 @@ public class Knight extends Piece {
 
         return m;
     }
+
+    @Override
+    public String toString(){
+        return " "+player.getPlayerColorChar() + "N ";
+    }
 }

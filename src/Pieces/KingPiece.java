@@ -60,4 +60,9 @@ public class KingPiece extends Piece {
 
         return m;
     }
+
+    @Override
+    public String toString(){
+        return " "+player.getPlayerColorChar() + "K ";
+    }
 }

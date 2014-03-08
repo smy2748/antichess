@@ -56,4 +56,8 @@ public abstract class Piece {
     protected boolean withinBoard(int x, int y){
         return (x >= 0 && x < max_x && y >= 0 && y < max_y);
     }
+
+    public boolean promotes(){
+        return false;
+    }
 }

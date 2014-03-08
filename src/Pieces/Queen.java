@@ -172,4 +172,9 @@ public class Queen extends Piece{
 
         return m;
     }
+
+    @Override
+    public String toString(){
+        return " "+player.getPlayerColorChar() + "Q ";
+    }
 }

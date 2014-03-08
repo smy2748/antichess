@@ -10,14 +10,26 @@ public class Move {
     protected Piece activePiece;
     protected int x1;
     protected int y1;
+    protected int upgradeType;
 
-    public Move(){}
+    public Move(){
+        upgradeType = 2;
+    }
 
     public Move(Piece piece,  int x1, int y1){
         this.activePiece = piece;
 
         this.x1 = x1;
         this.y1 = y1;
+        upgradeType = 2;
+    }
+
+    public int getUpgradeType() {
+        return upgradeType;
+    }
+
+    public void setUpgradeType(int upgradeType) {
+        this.upgradeType = upgradeType;
     }
 
     public Piece getActivePiece() {

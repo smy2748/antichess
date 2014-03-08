@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class Bishop extends Piece {
 
     public Bishop(int mx, int my){
-        max_x = x;
-        max_y = y;
+        max_x = mx;
+        max_y = my;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Bishop extends Piece {
         MoveSet m =  new MoveSet();
 
         //North Right Diagonal
-        for(int nx = x+1, ny = y+1; withinBoard(x,y); x++, y++){
+        for(int nx = x+1, ny = y+1; withinBoard(nx,ny); nx++, ny++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -58,7 +58,7 @@ public class Bishop extends Piece {
         }
 
         //North Left Diagonal
-        for(int nx = x-1, ny = y+1; withinBoard(x,y); x--, y++){
+        for(int nx = x-1, ny = y+1; withinBoard(nx,ny); nx--, ny++){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -72,7 +72,7 @@ public class Bishop extends Piece {
         }
 
         //South Left Diagonal
-        for(int nx = x-1, ny = y-1; withinBoard(x,y); x--, y--){
+        for(int nx = x-1, ny = y-1; withinBoard(nx,ny); nx--, ny--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -86,7 +86,7 @@ public class Bishop extends Piece {
         }
 
         //South Right Diagonal
-        for(int nx = x+1, ny = y-1; withinBoard(x,y); x++, y--){
+        for(int nx = x+1, ny = y-1; withinBoard(nx,ny); nx++, ny--){
             p = board[ny][nx];
             if(p != null){
                 if(p.getPlayer() != player){
@@ -100,5 +100,10 @@ public class Bishop extends Piece {
         }
 
         return m;
+    }
+
+    @Override
+    public String toString(){
+        return " "+player.getPlayerColorChar() + "B ";
     }
 }

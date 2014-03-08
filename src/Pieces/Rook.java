@@ -93,4 +93,9 @@ public class Rook extends Piece {
         }
         return m;
     }
+
+    @Override
+    public String toString(){
+        return " "+player.getPlayerColorChar() + "R ";
+    }
 }
