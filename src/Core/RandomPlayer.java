@@ -16,7 +16,7 @@ public class RandomPlayer extends Player {
 
 
     @Override
-    public Move getMove() {
+    public Move getMove() throws NoMovesException {
         ArrayList<Piece> pieces = board.getPiecesForPlayer(this);
 
         MoveSet m = new MoveSet();
@@ -34,8 +34,12 @@ public class RandomPlayer extends Player {
         else{
             moves = m.getMoves();
         }
-
-        result = moves.get(random.nextInt(moves.size()));
+        if(moves.size() > 0){
+            result = moves.get(random.nextInt(moves.size()));
+        }
+        else{
+            throw new NoMovesException();
+        }
 
 
         return result;

@@ -54,5 +54,5 @@ public abstract class Player {
         return "Black";
     }
 
-    public abstract Move getMove();
+    public abstract Move getMove() throws NoMovesException;
 }

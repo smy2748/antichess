@@ -28,6 +28,8 @@ public class AIPlayer extends Player {
         for(Piece p: pieces){
             m = m.merge(p.generateMoves(board.getBoardSquares()));
         }
+
+
         return null;
     }
 

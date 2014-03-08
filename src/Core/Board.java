@@ -13,18 +13,21 @@ public class Board {
     protected int x_dim;
     protected int y_dim;
     protected Player p1,p2;
+    protected int lastCapture;
 
 
     public Board(){
         boardSquares = new Piece[8][8];
         x_dim = 8;
         y_dim = 8;
+        lastCapture =0;
     }
 
     public Board(int x, int y){
         x_dim = x;
         y_dim = y;
         boardSquares = new Piece[y][x];
+        lastCapture =0;
 
     }
 
@@ -34,6 +37,10 @@ public class Board {
                 boardSquares[p.getY()][p.getX()] = p;
             }
         }
+    }
+
+    public int getLastCapture(){
+        return lastCapture;
     }
 
     public void makeMove(Move move) throws InvalidMoveException {
@@ -48,10 +55,15 @@ public class Board {
         x1 = move.getX1();
         y1 = move.getY1();
 
-        if(p.promotes() && (p.getY() == 0 || p.getY()==7)){
+        if(p.promotes() && (y1 == 0 ||y1==7)){
             p = promotePiece(p,move);
         }
-
+        if(boardSquares[y1][x1] != null){
+            lastCapture=0;
+        }
+        else{
+            lastCapture++;
+        }
 
         boardSquares[y1][x1] = p;
         p.setX(x1);
