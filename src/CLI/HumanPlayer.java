@@ -1,9 +1,12 @@
 package CLI;
 
 import Core.Move;
+import Core.MoveSet;
 import Core.NoMovesException;
 import Core.Player;
+import Pieces.Piece;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -43,6 +46,27 @@ public class HumanPlayer extends Player {
             System.out.println(board.toString()+"\n");
 
             m = parseMove(sc);
+        }
+        else if(moveString.equalsIgnoreCase("MOVES")){
+            MoveSet ms = new MoveSet();
+            ArrayList<Piece> pieces =  board.getPiecesForPlayer(this);
+
+            for (Piece p : pieces){
+                ms = ms.merge(p.generateMoves(board.getBoardSquares()));
+            }
+            ArrayList<Move> moves;
+            if(ms.anyCaptures()){
+                System.out.println("You must make one of the following captures: ");
+                moves = ms.getCaptures();
+            }
+            else{
+                moves = ms.getMoves();
+            }
+
+            for(Move move : moves){
+                System.out.println(move);
+            }
+            m=parseMove(sc);
         }
         else{
             String[] mArr= moveString.split(",");
