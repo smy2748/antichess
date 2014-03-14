@@ -7,6 +7,7 @@ public abstract class Player {
     protected String name;
     protected boolean topPlayer;
     protected Board board;
+    protected int wins;
 
     public Player(){}
 
@@ -14,6 +15,7 @@ public abstract class Player {
         this.name = name;
         this.topPlayer = topPlayer;
         board = b;
+        wins = 0;
     }
 
     public Board getBoard() {
@@ -55,4 +57,12 @@ public abstract class Player {
     }
 
     public abstract Move getMove() throws NoMovesException;
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
 }

@@ -17,6 +17,10 @@ public class AIPlayer extends Player {
         lookAhead = 5;
     }
 
+    public AIPlayer(){
+        lookAhead = 5;
+    }
+
     @Override
     public Move getMove() throws NoMovesException {
         ArrayList<Piece> pieces = board.getPiecesForPlayer(this);

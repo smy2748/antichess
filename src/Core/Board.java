@@ -119,7 +119,7 @@ public class Board {
         if(moves.anyCaptures()){
             for(Move m : moves.getCaptures()){
                 if(m.getX1() == move.getX1()
-                        && move.getY1() == move.getY1()){
+                        && m.getY1() == move.getY1()){
                     return true;
                 }
             }
@@ -127,7 +127,7 @@ public class Board {
         else{
             for(Move m : moves.getMoves()){
                 if(m.getX1() == move.getX1()
-                        && move.getY1() == move.getY1()){
+                        && m.getY1() == move.getY1()){
                     return true;
                 }
             }
@@ -303,7 +303,7 @@ public class Board {
 
         for(int i =boardSquares.length -1; i>= 0; i--){
             Piece[] row= boardSquares[i];
-
+            result += i + " ";
             for(int j=0; j<row.length; j++){
                 if(row[j] == null){
                     result += " -- ";
@@ -313,6 +313,10 @@ public class Board {
                 }
             }
             result +="\n";
+        }
+        result += "  ";
+        for(int i=0; i<boardSquares.length; i++){
+            result += " "+i +"  ";
         }
 
         return result;

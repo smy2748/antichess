@@ -66,6 +66,6 @@ public class Move {
 
     @Override
     public String toString(){
-        return "(" + getX0() + ", " + getY0() + ") -> (" + getX1() + ", " + getY1() + ")";
+        return activePiece.toString() +" (" + getX0() + ", " + getY0() + ") -> (" + getX1() + ", " + getY1() + ")";
     }
 }
