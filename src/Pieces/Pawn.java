@@ -97,4 +97,12 @@ public class Pawn extends Piece {
     public boolean promotes(){
         return true;
     }
+
+    @Override
+    public Piece copy() {
+        Pawn p = new Pawn(max_x,max_y,player);
+        p.setX(x);
+        p.setY(y);
+        return p;
+    }
 }

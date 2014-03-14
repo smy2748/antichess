@@ -62,6 +62,15 @@ public class KingPiece extends Piece {
     }
 
     @Override
+    public Piece copy() {
+        KingPiece kp = new KingPiece(max_x,max_y);
+        kp.setPlayer(player);
+        kp.setX(x);
+        kp.setY(y);
+        return kp;
+    }
+
+    @Override
     public String toString(){
         return " "+player.getPlayerColorChar() + "K ";
     }

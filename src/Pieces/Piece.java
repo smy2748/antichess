@@ -6,6 +6,7 @@ import Core.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Stephen Yingling on 3/5/14.
@@ -58,6 +59,21 @@ public abstract class Piece {
     }
 
     public boolean promotes(){
+        return false;
+    }
+
+    public abstract Piece copy();
+
+    @Override
+    public boolean equals(Object j){
+        if(j instanceof Piece){
+            Piece p = (Piece) j;
+            if(p.getPlayer() == player && p.getX() == x && p.getY() == y){
+                return true;
+            }
+
+        }
+
         return false;
     }
 }

@@ -103,6 +103,15 @@ public class Bishop extends Piece {
     }
 
     @Override
+    public Piece copy() {
+        Bishop b = new Bishop(max_x,max_y);
+        b.setPlayer(player);
+        b.setX(x);
+        b.setY(y);
+        return b;
+    }
+
+    @Override
     public String toString(){
         return " "+player.getPlayerColorChar() + "B ";
     }

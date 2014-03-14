@@ -88,6 +88,15 @@ public class Knight extends Piece {
     }
 
     @Override
+    public Piece copy() {
+        Knight k = new Knight(max_x,max_y);
+        k.setPlayer(player);
+        k.setX(x);
+        k.setY(y);
+        return k;
+    }
+
+    @Override
     public String toString(){
         return " "+player.getPlayerColorChar() + "N ";
     }

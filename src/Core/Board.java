@@ -44,6 +44,7 @@ public class Board {
     }
 
     public void makeMove(Move move) throws InvalidMoveException {
+        boolean validMove = validateMove(move);
         if(!validateMove(move)){
             throw new InvalidMoveException();
         }
@@ -323,5 +324,17 @@ public class Board {
 
     public int getY_dim() {
         return y_dim;
+    }
+
+    public void setX_dim(int x_dim) {
+        this.x_dim = x_dim;
+    }
+
+    public void setY_dim(int y_dim) {
+        this.y_dim = y_dim;
+    }
+
+    public void setLastCapture(int lastCapture) {
+        this.lastCapture = lastCapture;
     }
 }

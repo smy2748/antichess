@@ -174,6 +174,15 @@ public class Queen extends Piece{
     }
 
     @Override
+    public Piece copy() {
+        Queen q = new Queen(max_x, max_y);
+        q.setPlayer(player);
+        q.setX(x);
+        q.setY(y);
+        return q;
+    }
+
+    @Override
     public String toString(){
         return " "+player.getPlayerColorChar() + "Q ";
     }

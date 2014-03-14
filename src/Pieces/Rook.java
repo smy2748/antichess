@@ -95,6 +95,15 @@ public class Rook extends Piece {
     }
 
     @Override
+    public Piece copy() {
+        Rook r = new Rook(max_x,max_y);
+        r.setPlayer(player);
+        r.setY(y);
+        r.setX(x);
+        return r;
+    }
+
+    @Override
     public String toString(){
         return " "+player.getPlayerColorChar() + "R ";
     }
